@@ -1,26 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Switch, Route, Redirect } from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+// Components
+//import Sidebar from "./Components/Sidebar";
+import ListClasses from "./Components/ListClasses";
+import ClassDetail from "./Components/ClassDetail";
+import Signup from "./Components/SignupForm";
+import Login from "./Components/LoginForm";
+import Logout from "./Components/Logout";
+
+
+const App = () => (
+  <div id="app" className="container-fluid">
+    <div className="row">
+      <div className="col-2">
+       
+      </div>
+      <div className="content col-10">
+        <Switch>
+          <Route path="/classes/:classID">
+            <ClassDetail />
+          </Route>
+          <Route path="/classes">
+            <ListClasses />
+          </Route>
+          <Route path="/signup">
+            <Signup />
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Redirect to="/classes" />
+        </Switch>
+      </div>
     </div>
-  );
-}
+  </div>
+);
 
 export default App;
