@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import * as actionCreators from "./redux/actions"
 import { connect } from "react-redux";
-import {login} from "./redux/actions"
+import {login} from "../redux/actions"
 
 import {Redirect} from "react-router-dom";
 
