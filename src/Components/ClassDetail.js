@@ -3,8 +3,8 @@ import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
 
-//components
-import BookForm from "./BookForm"
+// Components
+
 
 
 const ClassDetail = ({ classes,user }) => {
@@ -19,23 +19,24 @@ const ClassDetail = ({ classes,user }) => {
   return (
     <div className="author">
       <div>
-        <h3>detail</h3>
+        <h3 class="text1">Detail Of Class</h3>
 
         <div className="col-lg-4 col-md-6 col-12">
 
         <div className="image">
+        <img src={classe.img} alt={classe.name} />
 
         </div>
         <div className="card-body">
+
           <h5 className="card-title">
-            <span>{classe.gym}</span>
+            {classe.name}
           </h5>
-          <p> {classe.name}</p>
-        <p>start day: {classe.start}</p>
-        <p>end day : {classe.end}</p>
-        <p>price : {classe.price}</p>
-        <small className="card-text">{classe.type_of} type</small>
-        <BookForm/>
+          <h6>By: {classe.gym}</h6>
+          <p>From: {classe.start}</p>
+          <p>To : {classe.end}</p>
+          <p>Price : {classe.price} SAR</p>
+          <small className="card-text">Type :{classe.type_of} </small>
         </div>
 
     </div>

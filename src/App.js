@@ -8,17 +8,15 @@ import Signup from "./Components/SignupForm";
 import Login from "./Components/LoginForm";
 import BookingList from "./Components/BookingList"
 import BookingDetail from "./Components/BookingDetail"
+import NavBar from "./Components/navBar"
 import CancelBooking from "./Components/CancelBooking"
 import BookForm from "./Components/BookForm"
 
 
+
 const App = () => (
-  <div id="app" className="container-fluid">
-    <div className="row">
-      <div className="col-2">
-       
-      </div>
-      <div className="content col-10">
+      <div>
+        < NavBar/>
         <Switch>
           <Route path="/classes/:classID">
             <ClassDetail />
@@ -38,19 +36,9 @@ const App = () => (
           <Route path="/bookings">
             <BookingList />
           </Route>
-          
-          {/* <Route path="/book/:classID">
-            <BookForm />
-          </Route> */}
-          {/* <Route path="/cancel/:bookingID">
-            <CancelBooking />
-          </Route> */}
-
           <Redirect to="/classes" />
         </Switch>
       </div>
-    </div>
-  </div>
 );
 
 export default App;

@@ -6,6 +6,7 @@ import SearchBar from "./SearchBar";
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import ClassCard from "./ClassCard"
+import banner from "../images/banner 650.png"
 
 
 
@@ -29,12 +30,18 @@ const ListClasses = ({ classes,user })=> {
 
 
   return (
-    <div >
-        <div>
-      <h3>class list</h3>
-      <SearchBar onChange={setQuery} />
-      <div className="row">{classCards}</div>
-    </div>
+    <div className="container" style={{textAlign: "center"}}>
+      <div>
+        <br></br>
+      </div>
+      <img src={banner}/>
+      <div className="mt-2 mb-2">
+        <SearchBar onChange={setQuery} />
+        <h3>Available Classes</h3>
+        <div className="row">
+          {classCards}
+        </div>
+      </div>
 
  
     </div>

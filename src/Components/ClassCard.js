@@ -6,17 +6,14 @@ const ClassCard = props => {
  
 
   return (
-    <div className="col-lg-4 col-md-6 col-12">
-      <Link to={`/classes/${classe.id}`} className="card">
-        <div className="image">
-
-        </div>
+    <div className="col-lg-4 col-md-6">
+      <Link to={`/classes/${classe.id}`} className="card m-3" style={{color: "black",}}>
         <div className="card-body">
           <h5 className="card-title">
-            <span>{classe.gym}</span>
+          {classe.name}
           </h5>
-          <p>{classe.name}</p>
-          <small className="card-text">{classe.type_of} type</small>
+          <h6>By :{classe.gym} </h6>
+          <small className="card-text">Type :{classe.type_of} </small>
         </div>
       </Link>
     </div>
