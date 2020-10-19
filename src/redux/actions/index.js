@@ -1,4 +1,4 @@
 export {login, signup, logout, checkExpiredToken} from "./authentication" 
-export {fetchBookings} from "./bookings" 
-export {} from "./classes"
+export {fetchBookings, bookClass, cancelBooking} from "./bookings" 
+export {fetchClasses} from "./classes"
 

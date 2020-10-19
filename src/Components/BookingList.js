@@ -2,21 +2,22 @@ import React, { useState } from "react";
 
 // Components
 import SearchBar from "./SearchBar";
+import BookingCard from "./BookingCard"
 // Data
 import gum from "../data";
-//search component
-import SearchBar from "./SearchBar";
+
+import {connect} from "react-redux"
 
 
 
 const BookingList = props => {
     const [query, setQuery] = useState("");
   
-    const filteredBooking = props.list.filter(booking =>  //filter booking list
-      booking.name.toLowerCase().includes(query.toLowerCase())
+    const filteredBooking = props.bookings.filter(booking =>  //filter booking list
+      booking.class_of.toLowerCase().includes(query.toLowerCase())
     );
-    const classCards = filteredBooking.map(booking => ( // send one item from list to display in card 
-      <ClassCard key={booking.name} booking={booking} />
+    const bookingList = filteredBooking.map(booking => ( // send one item from list to display in card 
+      <BookingCard key={booking.id} booking={booking} />
     ));
   
   return (
@@ -24,15 +25,25 @@ const BookingList = props => {
         <div>
       <h3>booking list</h3>
       <SearchBar handleFilter={setQuery} />
-      <div className="row">{classCards}</div>
+      <div className="row">
+        {bookingList}
+        </div>
     </div>
-      
- <div >{bookingList}</div>
     </div>
   );
 }
 
-export default BookingList;
+const mapStateToProps = state => {
+  console.log(state.bookings)
+  console.log("inside mapStateToProps")
+  return (
+    {
+      bookings: state.bookings
+    }
+  )
+}
+
+export default connect(mapStateToProps)(BookingList);
 
 
 

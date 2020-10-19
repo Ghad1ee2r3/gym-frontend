@@ -2,12 +2,14 @@ import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 
 // Components
-//import Sidebar from "./Components/Sidebar";
 import ListClasses from "./Components/ListClasses";
 import ClassDetail from "./Components/ClassDetail";
 import Signup from "./Components/SignupForm";
 import Login from "./Components/LoginForm";
-import Logout from "./Components/Logout";
+import BookingList from "./Components/BookingList"
+import BookingDetail from "./Components/BookingDetail"
+import CancelBooking from "./Components/CancelBooking"
+import BookForm from "./Components/BookForm"
 
 
 const App = () => (
@@ -30,6 +32,20 @@ const App = () => (
           <Route path="/login">
             <Login />
           </Route>
+          <Route path="/booking/:bookingID">
+            <BookingDetail />
+          </Route>
+          <Route path="/bookings">
+            <BookingList />
+          </Route>
+          
+          {/* <Route path="/book/:classID">
+            <BookForm />
+          </Route> */}
+          {/* <Route path="/cancel/:bookingID">
+            <CancelBooking />
+          </Route> */}
+
           <Redirect to="/classes" />
         </Switch>
       </div>

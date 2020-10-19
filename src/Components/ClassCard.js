@@ -9,17 +9,14 @@ const ClassCard = props => {
     <div className="col-lg-4 col-md-6 col-12">
       <Link to={`/classes/${classe.id}`} className="card">
         <div className="image">
-          <img
-            className="card-img-top img-fluid"
-            src={}
-            alt={}
-          />
+
         </div>
         <div className="card-body">
           <h5 className="card-title">
-            <span>{}</span>
+            <span>{classe.gym}</span>
           </h5>
-          <small className="card-text">{classe.type} type</small>
+          <p>{classe.name}</p>
+          <small className="card-text">{classe.type_of} type</small>
         </div>
       </Link>
     </div>
@@ -27,3 +24,4 @@ const ClassCard = props => {
 };
 
 export default ClassCard;
+

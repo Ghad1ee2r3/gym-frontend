@@ -3,35 +3,36 @@ import decode from "jwt-decode"
 import Cookies from "js-cookie"
 
 import instance from "./instance";
+import {fetchBookings} from "./bookings"
 
-export const login = (userData) => //, histor
+export const login = (userData,history) => //, histor
     async dispatch => {
         try{
-            let response = await instance.post("apilogin/", userData)
-            let { token } = response.data
-            dispatch(setCurrentUser(token)) 
-            // fetch user bookings action
+            let response = await instance.post("login/", userData)
+            let { access } = response.data
+            dispatch(setCurrentUser(access)) 
+            dispatch(fetchBookings())
             console.log("----logedin---")
-            //history.push("/")
+            history.push("/classes")
             
         } catch (error) {
             console.error(error)
         } }
 
-export const signup = (userData) => //,history
+export const signup = (userData,history) => //,history
     async dispatch => {
         try{
-            const response = await instance.post("signup/", userData)
-            const { token } = response.data
-            dispatch(setCurrentUser(token))
+            const response = await instance.post("register/", userData)
+            const { access } = response.data
+            dispatch(setCurrentUser(access))
             console.log("----signedup---")
-            //history.push("/")
+            history.push("/classes")
         } catch (error) {
             console.error(error)
         }       
 }
 
-export const logout = () => setCurrentUser() // logout from server
+export const logout = () => setCurrentUser()
 
 const setUserToken = (token) => {
     if (token){

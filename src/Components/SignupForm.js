@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Link, Redirect, useHistory } from "react-router-dom";
 import * as actionCreators from "../redux/actions"
 import { connect } from "react-redux";
 
 
 
 const Signup = (props) => {
+
+  let history = useHistory()
   const [userData, setUserData] = useState({
     username: "",
     email: "",
@@ -17,7 +19,7 @@ const Signup = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    props.signup(userData);
+    props.signup(userData,history);
    // alert("I DON'T WORK YET");
   };
 
@@ -81,7 +83,7 @@ const Signup = (props) => {
 
 const mapStateToProps = ({ user }) => ({ user });
 const mapDispatchToProps = dispatch => ({
-  signup: userData => dispatch(actionCreators.signup(userData))
+  signup: (userData,history) => dispatch(actionCreators.signup(userData,history))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Signup);
