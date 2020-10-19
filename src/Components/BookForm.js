@@ -14,17 +14,9 @@ const BookForm = ({bookClass}) => {
   };
 
   return (
-    <div className="col-6 mx-auto">
-      <div className="card my-5">
-        <div className="card-body">
-
-            <button type="submit" className="btn btn-primary" onClick={handleSubmit}>
-              Reserve
-            </button>
-            
-        </div>
-      </div>
-    </div>
+      <button type="submit" className="btn btn-warning" onClick={handleSubmit}>
+        Reserve
+      </button>
   );
 };
 

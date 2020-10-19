@@ -3,7 +3,7 @@ import { SET_CLASSES } from "./actionTypes";
 import instance from "./instance";
 export const fetchClasses = () => async dispatch => {
   try {
-    const res = await instance.get("allclasses/");
+    const res = await instance.get("classes/");
     const classes = res.data;
     console.log(classes)
     dispatch({

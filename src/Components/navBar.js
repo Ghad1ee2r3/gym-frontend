@@ -8,10 +8,17 @@ import Logout from './Logout';
 const Navbar = ({user}) => {
   return (
     <nav className="navbar navbar-light bg-light">
-      <Link to="/" className="navbar-brand">
+      <Link to="/classes" className="navbar-brand">
         Be fit
       </Link>
-      {user ?<Logout />:
+      {user ?
+      <>
+      <Link to="/bookings" className="navbar-brand">
+      My bookings
+      </Link>
+      <Logout />
+      </>
+      :
 
       <div>
       <Link to="/login" className="btn btn-info m-2 float-left">

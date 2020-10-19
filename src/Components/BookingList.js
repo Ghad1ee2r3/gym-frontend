@@ -21,14 +21,11 @@ const BookingList = props => {
     ));
   
   return (
-    <div >
-        <div>
-      <h3>booking list</h3>
-      <SearchBar handleFilter={setQuery} />
+    <div className="container mt-4" style={{textAlign: "center"}}>
+      <h3>My Bookings</h3>
       <div className="row">
         {bookingList}
-        </div>
-    </div>
+      </div>
     </div>
   );
 }

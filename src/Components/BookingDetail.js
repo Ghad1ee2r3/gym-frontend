@@ -8,9 +8,10 @@ import CancelBooking from "./CancelBooking"
 
 
 const BookingDetail = ({ bookings,user }) => {
- // const classe = props.classe;
+ 
   const { bookingID } = useParams();
   console.log("bookingID",bookingID)
+
   const booking = bookings.find(booking => booking.id === +bookingID);
   console.log("booking",booking)
   if (!booking) return <Redirect to="/bookings" />;
@@ -19,24 +20,28 @@ const BookingDetail = ({ bookings,user }) => {
 
 
   return (
-    <div className="author">
-      <div>
-        <h3>detail</h3>
-        <div className="col-lg-4 col-md-6 col-12">
-          <div className="image">
+      <div className="container mt-5">
+        
+        <div className="">
+          <div className="card">
+          {/* <div className="image">
+          <img src={booking.img} alt={booking.name} width="300" height="200"/>
+          </div> */}
+          <div className="card-header">
+            Booking detail
           </div>
           <div className="card-body">
             <h5 className="card-title">
-              <span>{booking.customer}</span>
+              <span>name: {booking.customer}</span>
             </h5>
-            <p> class: {booking.class_of}</p>
-          <p>time: {booking.time}</p>
-          <small className="card-text">{booking.type_of} type</small>
+            <p> Class: {booking.class_of}</p>
+          <p>Start: {booking.start}</p>
+          <small className="card-text"></small>
           <CancelBooking bookingID={bookingID}/>
           </div>
         </div>
       </div>
-    </div>
+      </div>
   );
 };
 const mapStateToProps = ({ bookings,user }) => 

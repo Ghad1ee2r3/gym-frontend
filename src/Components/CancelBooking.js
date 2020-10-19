@@ -7,7 +7,6 @@ import {cancelBooking} from "../redux/actions"
 
 const CancelBooking = ({cancelBooking, bookingID}) => {
   let history = useHistory()
-  //const {bookingID} = useParams()
 
   const handleSubmit = () => {
     cancelBooking(bookingID,history)
@@ -15,15 +14,9 @@ const CancelBooking = ({cancelBooking, bookingID}) => {
 
   return (
     <div className="col-6 mx-auto">
-      <div className="card my-5">
-        <div className="card-body">
-
-            <button type="submit" className="btn btn-danger" onClick={handleSubmit}>
-              cancel
-            </button>
-            
-        </div>
-      </div>
+        <button type="submit" className="btn btn-danger" onClick={handleSubmit}>
+            cancel
+        </button>
     </div>
   );
 };
