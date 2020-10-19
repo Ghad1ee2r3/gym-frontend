@@ -10,7 +10,7 @@ import CancelBooking from "./CancelBooking"
 const BookingDetail = ({ bookings,user }) => {
  
   const { bookingID } = useParams();
-  console.log("bookingID",bookingID)
+  console.log("bookingID",+bookingID)
 
   const booking = bookings.find(booking => booking.id === +bookingID);
   console.log("booking",booking)
@@ -24,9 +24,6 @@ const BookingDetail = ({ bookings,user }) => {
         
         <div className="">
           <div className="card">
-          {/* <div className="image">
-          <img src={booking.img} alt={booking.name} width="300" height="200"/>
-          </div> */}
           <div className="card-header">
             Booking detail
           </div>
@@ -45,7 +42,7 @@ const BookingDetail = ({ bookings,user }) => {
   );
 };
 const mapStateToProps = ({ bookings,user }) => 
-{console.log("insid booking detail mapStateToProps")
+{
   return ({
   bookings,
   user

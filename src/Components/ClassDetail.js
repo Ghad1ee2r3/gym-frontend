@@ -22,10 +22,9 @@ const ClassDetail = ({ classes,user }) => {
       <div className="card-header">
         Class Detail
       </div>
-        <div className="image">
+        {/* <div className="image">
         <img src={classe.img} alt={classe.name} />
-        {console.log(classe.img)}
-        </div>
+        </div> */}
         <div className="card-body">
 
           <h5 className="card-title">
